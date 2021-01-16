@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Ans from "../Material/Ans";
+import Ans from "./item/Ans";
 
 class QuizstartAnswer extends Component {
   render() {

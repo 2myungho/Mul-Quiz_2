@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Detailtext from '../View/Detailtext';
+import Detailtext from '../view/Detailtext';
 import {inject,observer} from "mobx-react"
 @inject("Store")
 
@@ -14,7 +14,7 @@ class DetailtextContainer extends Component {
     
     render() {
         const {quiz} = this.props.Store;
-        const getselectquiz = quiz;
+        const {getselectquiz} = quiz;
 
         return (
             <div>

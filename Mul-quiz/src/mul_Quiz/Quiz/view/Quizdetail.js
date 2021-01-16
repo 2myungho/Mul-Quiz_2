@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Grid, Button } from "semantic-ui-react";
-import DetailinputContainer from "../Container/DetailinputContainer";
-import DetailtextContainer from "../Container/DetailtextContainer";
-import DetailanswerContainer from "../Container/DetailanswerContainer";
+import DetailinputContainer from "../container/DetailinputContainer";
+import DetailtextContainer from "../container/DetailtextContainer";
+import DetailanswerContainer from "../container/DetailanswerContainer";
 import styled from "styled-components";
 
 const QuizInputForm = styled.div`

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Quizitem from "./Quizitem";
 import { ItemGroup } from "semantic-ui-react";
 import styled from "styled-components";
-import Add from "../Material/Add";
-import Import from "../Material/Import";
+import Add from "./item/Add";
+import Import from "./item/Import";
 
 const MapList = styled.div`
   box-shadow: 0px 0px 4px #b3b3b3;

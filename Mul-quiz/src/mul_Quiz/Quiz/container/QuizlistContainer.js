@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
-import Quizlist from "../View/Quizlist";
-import generateId from "../IDGenerator";
+import Quizlist from "../view/Quizlist";
+import generateId from "../../IDGenerator";
 
 @inject("Store")
 @observer

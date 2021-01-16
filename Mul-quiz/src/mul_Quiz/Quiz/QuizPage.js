@@ -1,22 +1,17 @@
 import React, { Component } from "react";
 import { Grid } from "semantic-ui-react";
-import QuizlistContainer from "../Container/QuizlistContainer";
-import QuizdetailContainer from "../Container/QuizdetailContainer";
-import Nav from "../Material/Nav";
+import QuizlistContainer from "./container/QuizlistContainer";
+import QuizdetailContainer from "./container/QuizdetailContainer";
 import "./QuizPage.scss";
 import styled from "styled-components";
 import { inject, observer } from "mobx-react";
-import Quizstart from "../View/Quizstart";
+import Quizstart from "./view/Quizstart";
 
 const Wrap = styled.div``;
 
 @inject("Store")
 @observer
 class QuizPage extends Component {
-  start = (value) => {
-    const {quiz} = this.props.Store;
-    quiz.setstart(value);
-  };
   onTotalScore = (score) => {
     const {quiz} = this.props.Store;
     quiz.TotalScore(score);
@@ -56,8 +51,6 @@ class QuizPage extends Component {
 
     return (
       <Wrap style={tempStyle} className={"navStyle"}>
-        <Nav gamestart={getgamestart} start={this.start} />
-
         {getgamestart && true ? (
           <Grid columns={2} divided style={marginRemove}>
             <Grid.Row style={tempStyle}>

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Grid, Divider, Form } from "semantic-ui-react";
-import Sel from "../Material/Sel";
-import Point from "../Material/Point";
-import Time from "../Material/Time";
+import Sel from "./item/Sel";
+import Point from "./item/Point";
+import Time from "./item/Time";
 import styled from "styled-components";
-import Upload from "../Material/Upload";
+import Upload from "./item/Upload";
 
 const InputForm = styled.div`
   .gridForm {

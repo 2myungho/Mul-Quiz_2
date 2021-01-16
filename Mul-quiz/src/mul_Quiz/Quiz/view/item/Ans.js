@@ -98,7 +98,6 @@ const styleCheck = {
 };
 
 export default function BasicTextFields({ quiz, setQuiz }) {
-  console.log(quiz)
   const classes = useStyles();
   return (
     <form noValidate autoComplete="off">

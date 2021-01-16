@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Header, Image, Segment } from "semantic-ui-react";
-import UserAns from "../Material/UserAns";
-import Timeout from "../Material/Timeout";
+import UserAns from "./item/UserAns";
+import Timeout from "./item/Timeout";
 
 class Quizstart extends Component {
   constructor(props) {

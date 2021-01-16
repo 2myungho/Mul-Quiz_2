@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {inject,observer} from "mobx-react"
-import Quizdetail from '../View/Quizdetail';
+import Quizdetail from '../view/Quizdetail';
 
 @inject("Store")
 

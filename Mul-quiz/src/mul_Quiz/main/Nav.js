@@ -14,7 +14,6 @@ import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
 import { green, } from '@material-ui/core/colors';
 import { Link } from 'react-router-dom';
-import mainLogo from '../image/mainLogo.png'
 
 const Nav = styled.div`
     margin-bottom:50px;
@@ -179,7 +178,7 @@ export default function PrimarySearchAppBar({ login, onLoginClick }) {
             <MenuIcon style={svg} />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            <Link to="/" className="mainLink"><img src={mainLogo} alt={"mainLogo"} className={"logoImg"}/></Link>
+            <Link to="/" className="mainLink"><img src="/logo_images/mainLogo.png" alt={"mainLogo"} className={"logoImg"}/></Link>
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

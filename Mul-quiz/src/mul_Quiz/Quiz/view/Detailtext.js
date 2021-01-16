@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Tex from "../Material/Tex";
+import Tex from "./item/Tex";
 
 class Detailtext extends Component {
     render() {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Detailinput from "../View/Detailinput";
+import Detailinput from "../view/Detailinput";
 import { inject, observer } from "mobx-react";
 
 @inject("Store")
