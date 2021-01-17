@@ -181,7 +181,6 @@ export default function PrimarySearchAppBar({gamestart,start}) {
 
           {gamestart === false ?
               <>
-                <Button variant="outlined" style={margin}>PreView</Button>
                 <Button variant="contained" color="secondary"  style={margin}>
                   <Link to ="/" className={"exitColor"} >Exit</Link>
                 </Button>
