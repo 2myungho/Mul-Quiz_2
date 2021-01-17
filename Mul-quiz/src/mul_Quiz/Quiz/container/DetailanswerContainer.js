@@ -19,7 +19,6 @@ class DetailanswerContainer extends Component {
   render() {
     const {quiz} = this.props.Store;
     const {getselectquiz} = quiz;
-    console.log(quiz.quizs)
     return (
       <div>
         <Detailanswer quiz={getselectquiz} setQuiz={this.setQuiz} />

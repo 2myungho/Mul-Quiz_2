@@ -9,9 +9,15 @@ class QuizlistContainer extends Component {
   onRemove = () => {
     const {quiz} = this.props.Store;
     const ISBN = quiz.selectquiz.ISBN;
-    quiz.Remove(ISBN);
+    if(window.confirm("해당 항목을 삭제하겠습니까?") == true){
+      quiz.Remove(ISBN);
+    } else{
+      return false;
+    }
+    
   };
-  onSelect = (quizObj) => {
+
+  onSelect = (quizObj,e) => {
     const {quiz} = this.props.Store;
     quiz.selectQuiz(quizObj);
   };
@@ -32,6 +38,17 @@ class QuizlistContainer extends Component {
     quiz.ItemMouseOver(quizObj);
   };
 
+  //리스트 전체 삭제
+  onAllRemove = () => {
+    const {quiz} = this.props.Store;
+    if (window.confirm("정말 리스트 전체 삭제를 하시겠습니까?") == true){
+      quiz.allRemove()
+    }else {
+      return false;
+    }
+    
+  }
+
   render() {
     const {quiz} = this.props.Store;
     const {getquizs, selectquiz, hoverquiz, getgamestart} = quiz;
@@ -46,6 +63,7 @@ class QuizlistContainer extends Component {
         onItemMouseOver={this.onItemMouseOver}
         hoverquiz={hoverquiz}
         gamestart={getgamestart}
+        onAllRemove={this.onAllRemove}
       />
     );
   }

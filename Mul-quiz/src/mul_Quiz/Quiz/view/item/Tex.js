@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MultilineTextFields({quiz,setQuiz}) {
-  console.log(quiz.title)
   const classes = useStyles();
  
   return (

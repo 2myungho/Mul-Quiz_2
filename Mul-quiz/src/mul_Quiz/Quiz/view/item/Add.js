@@ -77,9 +77,9 @@ export default function SimpleModal({onAddQuiz}) {
     </Style>
   );
 
-  const center = {width:"80%",height:"50px", fontSize:"18px" }
+  const center = {width:"80%",height:"50px", fontSize:"18px", marginBottom:"1rem"}
   return (
-    <addBtn>
+    <addBtn >
       <Button type="button" onClick={handleOpen}
       variant="contained"
       primary

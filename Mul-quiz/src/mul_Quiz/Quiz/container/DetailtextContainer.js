@@ -15,6 +15,8 @@ class DetailtextContainer extends Component {
     render() {
         const {quiz} = this.props.Store;
         const {getselectquiz} = quiz;
+        console.log(quiz.quizs)
+        console.log(getselectquiz)
 
         return (
             <div>

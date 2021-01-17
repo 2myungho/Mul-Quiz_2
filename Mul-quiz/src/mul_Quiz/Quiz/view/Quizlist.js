@@ -4,6 +4,7 @@ import { ItemGroup } from "semantic-ui-react";
 import styled from "styled-components";
 import Add from "./item/Add";
 import Import from "./item/Import";
+import AllRemove from "./item/AllRemove";
 
 const MapList = styled.div`
   box-shadow: 0px 0px 4px #b3b3b3;
@@ -30,7 +31,8 @@ class Quizlist extends Component {
       selectquiz,
       onItemMouseOver,
       hoverquiz,
-      gamestart
+      gamestart,
+      onAllRemove
     } = this.props;
 
     const quizlist = quizs.map((quiz, index) => (
@@ -50,11 +52,15 @@ class Quizlist extends Component {
     return (
       <MapList>
         <ItemGroup>{quizlist}</ItemGroup>
-        {gamestart && true ? "" : <Add onAddQuiz={onAddQuiz} />}
-      
-        <div className={"import"}>
+        {gamestart && true ? "" : 
+          <>
+            <Add onAddQuiz={onAddQuiz}/>
+            <AllRemove onAllRemove={onAllRemove} />
+          </>
+        }
+        {/* <div className={"import"}>
           <Import />
-        </div>
+        </div> */}
       </MapList>
     );
   }

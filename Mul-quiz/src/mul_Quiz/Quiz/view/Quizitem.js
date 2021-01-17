@@ -116,7 +116,7 @@ class Quizitem extends Component {
     } = this.props;
     return (
       <ListItems>
-        {quiz.default ? (
+        {quiz.selectCheck ? (
           <Item.Group className={classNames("ListItem", "checked")}>
           <Item
             style={selectItem}
@@ -128,7 +128,7 @@ class Quizitem extends Component {
               <Item.Header as="a" style={titleItem}>
                 {index}번 Quiz
               </Item.Header>
-              <MdDelete onClick={() => onRemove()}>제거</MdDelete>
+              <MdDelete onClick={(e) => onRemove(e.stopPropagation())}>제거</MdDelete>
               <div className={classNames("boxItemCheck", "checkedBox")}>
                 <Item.Header as="a" style={boxTitleItem}>
                   {quiz.title}
@@ -144,34 +144,6 @@ class Quizitem extends Component {
             </Item.Content>
           </Item>
         </Item.Group>
-        ) : quiz.selectCheck ? (
-          <Item.Group className={classNames("ListItem", "checked")}>
-            <Item
-              style={selectItem}
-              onClick={() => {
-                onSelect(quiz);
-              }}
-            >
-              <Item.Content>
-                <Item.Header as="a" style={titleItem}>
-                  {index}번 Quiz
-                </Item.Header>
-                <MdDelete onClick={() => onRemove()}>제거</MdDelete>
-                <div className={classNames("boxItemCheck", "checkedBox")}>
-                  <Item.Header as="a" style={boxTitleItem}>
-                    {quiz.title}
-                  </Item.Header>
-                  <div className={"imgBox"}></div>
-                  <ul className={"checkBarForm"}>
-                    <li className={"checkBar"}></li>
-                    <li className={"checkBar"}></li>
-                    <li className={"checkBar"}></li>
-                    <li className={"checkBar"}></li>
-                  </ul>
-                </div>
-              </Item.Content>
-            </Item>
-          </Item.Group>
         ) : (
           <Item.Group className={classNames("ListItem")}>
             <Item

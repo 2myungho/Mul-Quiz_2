@@ -10,7 +10,6 @@ class QuizdetailContainer extends Component {
     onModify=()=>{
         const {quiz} = this.props.Store;
         const selectquiz = quiz.getselectquiz;
-        console.log(selectquiz)
         quiz.Modify(selectquiz);
     }
 

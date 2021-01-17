@@ -64,12 +64,11 @@ export default class QuizStore {
   @action
   selectQuiz(quiz) {
     for (var i = 0; i < this.quizs.length; i++) {
-      this.quizs[i].default = false;
       this.quizs[i].selectCheck = false;
     }
     quiz.selectCheck = quiz.selectCheck === false ? true : false;
     this.selectquiz = quiz;
-    console.log(quiz.selectCheck);
+    console.log("1")
   }
 
   @action
@@ -83,11 +82,9 @@ export default class QuizStore {
   @action
   nextQuiz(quiz) {
     for (var i = 0; i < this.quizs.length; i++) {
-      this.quizs[i].default = false;
       this.quizs[i].selectCheck = false;
       if (this.quizs[i] === quiz) {
         this.selectquiz = this.quizs[i + 1];
-        console.log(this.selectquiz);
       }
     }
     if (this.selectquiz === undefined) {
@@ -97,10 +94,13 @@ export default class QuizStore {
     }
   }
 
+  //리스트 삭제
   @action
   Remove(ISBN) {
     this.quizs = this.quizs.filter((quiz) => quiz.ISBN !== ISBN);
-    this.selectquiz = Quizs[0];
+    this.quizs[0].selectCheck = true;
+    this.selectquiz = this.quizs[0];
+    console.log(2)
   }
 
   @action
@@ -120,9 +120,15 @@ export default class QuizStore {
     );
   }
 
+  //게임 시작 (Done 클릭시)
   @action
   setstart(value) {
     this.gamestart = value;
+    for (var i = 0; i < this.quizs.length; i++) {
+      this.quizs[i].selectCheck = false;
+    }
+    this.quizs[0].selectCheck = true;
+    this.selectquiz = this.quizs[0];
   }
 
   @action
@@ -132,6 +138,11 @@ export default class QuizStore {
   @action
   TotalScore(score) {
     this.totalScore += score;
+  }
+
+  //리스트 전체 삭제
+  allRemove() {
+    this.quizs = []
   }
 
 }
