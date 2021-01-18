@@ -100,7 +100,6 @@ export default class QuizStore {
     this.quizs = this.quizs.filter((quiz) => quiz.ISBN !== ISBN);
     this.quizs[0].selectCheck = true;
     this.selectquiz = this.quizs[0];
-    console.log(2)
   }
 
   @action
@@ -111,6 +110,11 @@ export default class QuizStore {
   @action
   addQuiz(quiz) {
     this.quizs.push(quiz);
+    for (var i = 0; i < this.quizs.length; i++) {
+      this.quizs[i].selectCheck = false;
+    }
+    this.quizs[this.quizs.length -1].selectCheck = true;
+    this.selectquiz = this.quizs[this.quizs.length -1];
   }
 
   @action
