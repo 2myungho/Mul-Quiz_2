@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { Grid } from "semantic-ui-react";
 import QuizlistContainer from "./container/QuizlistContainer";
 import QuizdetailContainer from "./container/QuizdetailContainer";
+import QuizNone from "./view/QuizNone"
 import "./QuizPage.scss";
 import styled from "styled-components";
 import { inject, observer } from "mobx-react";
 import Quizstart from "./view/Quizstart";
+import { isWidthDown } from "@material-ui/core";
 
 const Wrap = styled.div``;
 
@@ -31,13 +33,17 @@ class QuizPage extends Component {
       margin: "0px",
     };
     const leftStyle = {
-      width: "15%",
+      width: "280px",
       padding: "0px",
       height: "100%",
+      position:"absolute",
+      top:"0",
+      left:"0"
     };
     const rightStyle = {
-      width: "85%",
       background: "#eff2eb",
+      width:"100%",
+      marginLeft:"280px"
     };
 
     const {quiz} = this.props.Store;
@@ -77,7 +83,7 @@ class QuizPage extends Component {
               </Grid.Column>
 
               <Grid.Column style={rightStyle}>
-                <QuizdetailContainer />
+                {getquizs.length == 0 ? <QuizNone /> : <QuizdetailContainer />}
               </Grid.Column>
             </Grid.Row>
           </Grid>
