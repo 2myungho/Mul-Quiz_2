@@ -168,7 +168,7 @@ export default function PrimarySearchAppBar({gamestart,start}) {
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder="문제 검색"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
@@ -182,7 +182,7 @@ export default function PrimarySearchAppBar({gamestart,start}) {
           {gamestart === false ?
               <>
                 <Button variant="contained" color="secondary"  style={margin}>
-                  <Link to ="/" className={"exitColor"} >Exit</Link>
+                  <Link to ="/signin" className={"exitColor"} >Login</Link>
                 </Button>
                 <ThemeProvider theme={theme} >
                 <Button variant="contained" color="primary" className={classes.margin} style={margin} onClick={()=>start(true)}>
