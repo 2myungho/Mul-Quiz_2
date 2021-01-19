@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React,{useRef,useEffect} from 'react';
 import Quizitem from "./Quizitem";
 import { ItemGroup } from "semantic-ui-react";
 import styled from "styled-components";
@@ -21,49 +21,55 @@ const MapList = styled.div`
   }
 `;
 
-class Quizlist extends Component {
-  render() {
-    const {
-      quizs,
-      onRemove,
-      onSelect,
-      onAddQuiz,
-      selectquiz,
-      onItemMouseOver,
-      hoverquiz,
-      gamestart,
-      onAllRemove
-    } = this.props;
+const Quizlist = ({
+  quizs,
+  onRemove,
+  onSelect,
+  onAddQuiz,
+  selectquiz,
+  onItemMouseOver,
+  hoverquiz,
+  gamestart,
+  onAllRemove
+}) => {
+  const box = useRef(null);
 
-    const quizlist = quizs.map((quiz, index) => (
-      <Quizitem
-        index={index + 1}
-        quiz={quiz}
-        onRemove={onRemove}
-        onSelect={onSelect}
-        onAddQuiz={onAddQuiz}
-        selectquiz={selectquiz}
-        onItemMouseOver={onItemMouseOver}
-        hoverquiz={hoverquiz}
-        gamestart={gamestart}
-      />
-    ));
+  const scrollToBottom = () => {
+    const { scrollHeight, clientHeight } = box.current;
+    box.current.scrollTop = scrollHeight - clientHeight;
+  };
+  useEffect(() => {
+    scrollToBottom()
+  },[quizs]) 
 
-    return (
-      <MapList>
-        <ItemGroup>{quizlist}</ItemGroup>
-        {gamestart && true ? "" : 
-          <>
-            <Add onAddQuiz={onAddQuiz}/>
-            <AllRemove onAllRemove={onAllRemove} />
-          </>
-        }
-        {/* <div className={"import"}>
+  const quizlist = quizs.map((quiz, index) => (
+    <Quizitem
+      index={index + 1}
+      quiz={quiz}
+      onRemove={onRemove}
+      onSelect={onSelect}
+      onAddQuiz={onAddQuiz}
+      selectquiz={selectquiz}
+      onItemMouseOver={onItemMouseOver}
+      hoverquiz={hoverquiz}
+      gamestart={gamestart}
+    />
+  ));
+
+  return (
+    <MapList ref={box}>
+      <ItemGroup>{quizlist}</ItemGroup>
+      {gamestart && true ? "" :
+        <>
+          <Add onAddQuiz={onAddQuiz} scrollToBottom={scrollToBottom} />
+          <AllRemove onAllRemove={onAllRemove} />
+        </>
+      }
+      {/* <div className={"import"}>
           <Import />
         </div> */}
-      </MapList>
-    );
-  }
-}
+    </MapList>
+  );
+};
 
 export default Quizlist;

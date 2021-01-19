@@ -85,18 +85,19 @@ export default function SimpleModal({onAddQuiz}) {
       primary
       disableElevation
       style={center}
+      onClick={onAddQuiz}
       className={"center"}
       >
       Add question
       </Button>
-      <Modal
+      {/* <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
         {body}
-      </Modal>
+      </Modal> */}
     </addBtn>
   );
 }
