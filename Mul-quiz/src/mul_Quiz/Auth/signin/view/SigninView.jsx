@@ -104,53 +104,54 @@ const ButtonWithMarginTop_kakao = styled.button`
 const ErrorMessage = styled.div`
  color: red;
  text-align: center;
- font-size: 0.875rem;
+ font-size: 1rem;
  margin-top: 1rem;
+ margin-bottom: -1rem;
  font-weight:600;
 `;
 
 class logIn extends Component {
 
-    render() {
-        const {
-          onChangeId,
-          onChangePw,
-          error,
-          onSubmitLog,
-        } = this.props;
-        return (
-    <AuthFormBlock>
-      <h3>Signin</h3>
-      <form onSubmit={(e) => onSubmitLog(e.preventDefault())}>
-        <label htmlfor="username" className="labelText">ID</label>
-        <StyledInput
-          name="username"
-          placeholder="Email"
-          onChange={(e) => onChangeId(e.target.value)}
-        />
-        <label htmlfor="username" className="labelText">PassWord</label>
-        <StyledInput
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={(e) => onChangePw(e.target.value)}
-          autocomplete="off"
-        />
-        {error && <ErrorMessage>{error}</ErrorMessage>}
-        <ButtonWithMarginTop cyan fullWidth>
-          Signin
+  render() {
+    const {
+      onChangeId,
+      onChangePw,
+      error,
+      onSubmitLog,
+    } = this.props;
+    return (
+      <AuthFormBlock>
+        <h3>Signin</h3>
+        <form onSubmit={(e) => onSubmitLog(e.preventDefault())}>
+          <label htmlfor="username" className="labelText">ID</label>
+          <StyledInput
+            name="username"
+            placeholder="Email"
+            onChange={(e) => onChangeId(e.target.value)}
+          />
+          <label htmlfor="username" className="labelText">PassWord</label>
+          <StyledInput
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={(e) => onChangePw(e.target.value)}
+            autocomplete="off"
+          />
+          {error && <ErrorMessage>{error}</ErrorMessage>}
+          <ButtonWithMarginTop cyan fullWidth>
+            Signin
         </ButtonWithMarginTop>
-        <ButtonWithMarginTop_kakao cyan fullWidth style={{marginTop:"1.5rem"}}>
-          KaKao Signin
+          <ButtonWithMarginTop_kakao cyan fullWidth style={{ marginTop: "1.5rem" }}>
+            KaKao Signin
         </ButtonWithMarginTop_kakao>
-        
-      </form>
-      <Footer>
-          <Link to="/register">SignUp</Link>
-      </Footer>
-    </AuthFormBlock>
-        );
-    }
+
+        </form>
+        <Footer>
+          <Link to="/signup">SignUp</Link>
+        </Footer>
+      </AuthFormBlock>
+    );
+  }
 }
 
 export default logIn;

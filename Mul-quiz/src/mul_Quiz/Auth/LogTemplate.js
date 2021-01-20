@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import SigninView from './signin/view/SigninView';
 
 // * 회원가입 / 로그인 페이지의 레이아웃을 담당하는 컴포넌트.
 /* 화면 전체를 채움 */
@@ -50,14 +49,7 @@ const WhiteBox = styled.div`
 
 class LogTemplate extends Component {
     render() {
-      const { 
-        history,
-        setlogin,
-        onChangePw,
-        onChangeId,
-        error,
-        onSubmitLog,
-      } = this.props;
+
         return (
             <AuthTemplateBlock>
                 <WhiteBox>
@@ -66,14 +58,7 @@ class LogTemplate extends Component {
                           <img src="/logo_Images/logLogo.png" alt={"loginLogo"} className={"logoImg"}/>
                         </Link>
                     </div>
-                    <SigninView 
-                      history={history} 
-                      setlogin={setlogin}
-                      onChangePw={onChangePw}
-                      onChangeId={onChangeId}
-                      error={error}
-                      onSubmitLog={onSubmitLog}
-                    />
+                    {this.props.children} 
                 </WhiteBox>
             </AuthTemplateBlock>
         );

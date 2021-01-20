@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {inject,observer} from "mobx-react"
 import LogTemplate from "../../LogTemplate";
+import SigninView from '../view/SigninView';
 
 @inject("Store")
-
 @observer
 class SigninContainer extends Component {
 
@@ -37,13 +37,17 @@ class SigninContainer extends Component {
     render() {
         const {auth} = this.props.Store;
         const {error} = auth;
-        return <LogTemplate 
-            history={this.props.history}
-            onChangeId={this.onChangeId}
-            onChangePw={this.onChangePw}
-            onSubmitLog={this.onSubmitLog}
-            error={error}
-        />
+        return (
+            <LogTemplate >
+                <SigninView 
+                    history={this.props.history} 
+                    onChangePw={this.onChangePw}
+                    onChangeId={this.onChangeId}
+                    error={error}
+                    onSubmitLog={this.onSubmitLog}
+                    />
+            </LogTemplate>
+        )
     }
 }
 
