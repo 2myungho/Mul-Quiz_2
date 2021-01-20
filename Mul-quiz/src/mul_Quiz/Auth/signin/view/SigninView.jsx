@@ -8,12 +8,13 @@ import palette from '../../signStyle/palette';
 const AuthFormBlock = styled.div`
  h3 {
    margin: 0;
-   color: ${palette.gray[8]};
+   color: ${palette.gray[9]};
+   font-size:1.5rem;
    margin-bottom: 1rem;
  }
  .labelText{
    font-weight:bold;
-   color:#1e70bf;
+   color:#294376;
    font-size:20px;
    margin:20px 0 15px;
    display:block;
@@ -22,7 +23,7 @@ const AuthFormBlock = styled.div`
 
 //* 스타일링된 input
 const StyledInput = styled.input`
- font-size: 1rem;
+ font-size: 1.2rem;
  display:block;
  height:50px;
  border: none;
@@ -47,8 +48,9 @@ const Footer = styled.div`
  font-weight:600;
  margin-top: 2rem;
  text-align: right;
+ font-size:1.5rem;
  a {
-   color: ${palette.gray[6]};
+   color: ${palette.gray[7]};
    text-decoration: underline;
    text-underline-position: under;
    &:hover {
@@ -69,10 +71,31 @@ const ButtonWithMarginTop = styled.button`
     outline: none;
     cursor: pointer;
     margin-top: 60px;
-    background:#61caa9;
+    background:#294376;
+    opacity:0.9;
 
     &:hover{
-        background:#a1dba8;
+        background:#5e80c3;
+    }
+`;
+
+const ButtonWithMarginTop_kakao = styled.button`
+    width:100%;
+    line-height:50px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0.25rem 1rem;
+    color: 000000;
+    outline: none;
+    cursor: pointer;
+    margin-top: 60px;
+    background:#ffe812;
+    opacity:0.9;
+
+    &:hover{
+        background:#f9eb67;
     }
 `;
 
@@ -97,29 +120,33 @@ class logIn extends Component {
         } = this.props;
         return (
     <AuthFormBlock>
-      <h3>로그인</h3>
+      <h3>Signin</h3>
       <form onSubmit={(e) => onSubmitLog(e.preventDefault())}>
         <label htmlfor="username" className="labelText">ID</label>
         <StyledInput
           name="username"
-          placeholder="아이디를 입력하세요"
+          placeholder="Email"
           onChange={(e) => onChangeId(e.target.value)}
         />
         <label htmlfor="username" className="labelText">PassWord</label>
         <StyledInput
           type="password"
           name="password"
-          placeholder="비밀번호를 입력하세요"
+          placeholder="Password"
           onChange={(e) => onChangePw(e.target.value)}
           autocomplete="off"
         />
         {error && <ErrorMessage>{error}</ErrorMessage>}
         <ButtonWithMarginTop cyan fullWidth>
-          로그인
+          Signin
         </ButtonWithMarginTop>
+        <ButtonWithMarginTop_kakao cyan fullWidth style={{marginTop:"1.5rem"}}>
+          KaKao Signin
+        </ButtonWithMarginTop_kakao>
+        
       </form>
       <Footer>
-          <Link to="/register">회원가입</Link>
+          <Link to="/register">SignUp</Link>
       </Footer>
     </AuthFormBlock>
         );

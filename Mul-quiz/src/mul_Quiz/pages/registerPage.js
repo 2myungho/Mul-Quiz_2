@@ -12,7 +12,7 @@ const AuthTemplateBlock = styled.div`
   top: 0;
   bottom: 0;
   right: 0;
-  background:#c6ecca;
+  background:url("/quiz_images/gameImg.jpg");
   /* flex로 내부 내용 중앙 정렬 */
   display: flex;
   flex-direction: column;
@@ -155,7 +155,7 @@ class registerPage extends Component {
                             </ButtonWithMarginTop>
                         </form>
                         <Footer>
-                            <Link to="/login">로그인</Link>
+                            <Link to="/signin">로그인</Link>
                         </Footer>
                     </AuthFormBlock>
                 </WhiteBox>
